@@ -17,6 +17,7 @@ You can fin instructions[here](https://webpack.electron.build/add-ons).
 * `yarn build:all` - builds final application packages for `MacOS`, `Windows` and `Linux` platforms
 * `yarn build:mac` - builds final application package for `MacOS` platform
 * `yarn build:win` - builds final application package for `Windows` platform
+* `yarn build:winstore` - builds final application package for `Windows Store` platform
 * `yarn build:linux` - builds final application package for `Linux` platform
 
 #### Folders structure
