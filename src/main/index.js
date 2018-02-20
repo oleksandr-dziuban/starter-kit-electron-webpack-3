@@ -1,10 +1,14 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Notification } from 'electron';
 import * as path from 'path';
 import { format as formatUrl } from 'url';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 let mainWindow;
 
+/**
+ * Create initial application window
+ * @returns {Electron.BrowserWindow}
+ */
 const createMainWindow = () => {
   const window = new BrowserWindow();
 
@@ -39,18 +43,35 @@ const createMainWindow = () => {
   return window;
 };
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+/**
+ * Show initial application notification
+ * @returns {Electron.Notification}
+ */
+const showNotification = () => {
+  const myNotification = new Notification({
+    title: 'Welcome to Electron Starter Kit',
+    body: 'Enjoy!'
+  });
+
+  myNotification.show();
+};
+
+// Application start
+app.on('ready', () => {
+  mainWindow = createMainWindow();
+  showNotification();
 });
 
+// Application reactivation
 app.on('activate', () => {
   if (mainWindow === null) {
     mainWindow = createMainWindow();
   }
 });
 
-app.on('ready', () => {
-  mainWindow = createMainWindow();
+// Application quit
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
