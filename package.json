@@ -8,10 +8,11 @@
     "start": "electron-webpack dev",
     "compile": "electron-webpack",
     "build:clean": "rimraf dist",
-    "build:all": "npm run build:clean && npm run compile && electron-builder -mwl --x64",
-    "build:mac": "npm run build:clean && npm run compile && electron-builder --mac --x64",
-    "build:win": "npm run build:clean && npm run compile && electron-builder --win --x64",
-    "build:linux": "npm run build:clean && npm run compile && electron-builder --linux --x64"
+    "build:all": "npm run compile && electron-builder -mwl --x64",
+    "build:mac": "npm run compile && electron-builder --mac --x64",
+    "build:win": "npm run compile && electron-builder --win --x64",
+    "build:winstore": "npm run compile && electron-windows-store",
+    "build:linux": "npm run compile && electron-builder --linux --x64"
   },
   "dependencies": {
     "source-map-support": "^0.5.3"
@@ -25,6 +26,9 @@
     "rimraf": "^2.6.2",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0"
+  },
+  "optionalDependencies": {
+    "electron-windows-store": "^0.12.0"
   },
   "resolutions": {
     "webpack-sources": "1.0.1"
