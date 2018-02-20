@@ -1,0 +1,32 @@
+{
+  "name": "starter-kit-electron-webpack-3",
+  "version": "1.0.0",
+  "description": "Electron Application Starter Kit",
+  "repository": "https://github.com/oleksandr-dziuban/starter-kit-electron-webpack-3",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "build:clean": "rimraf dist",
+    "build:all": "npm run build:clean && npm run compile && electron-builder -mwl --x64",
+    "build:mac": "npm run build:clean && npm run compile && electron-builder --mac --x64",
+    "build:win": "npm run build:clean && npm run compile && electron-builder --win --x64",
+    "build:linux": "npm run build:clean && npm run compile && electron-builder --linux --x64"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.3"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "electron": "^1.8.2",
+    "electron-builder": "^20.0.6",
+    "electron-webpack": "^1.13.0",
+    "file-loader": "^1.1.7",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.20.2",
+    "webpack": "^3.11.0"
+  },
+  "resolutions": {
+    "webpack-sources": "1.0.1"
+  }
+}
