@@ -4,18 +4,7 @@
   "description": "Electron Application Starter Kit",
   "repository": "https://github.com/oleksandr-dziuban/starter-kit-electron-webpack-3",
   "license": "MIT",
-  "scripts": {
-    "start": "electron-webpack dev",
-    "compile": "electron-webpack",
-    "build:clean": "rimraf dist",
-    "build:all": "npm run compile && electron-builder -mwl --x64",
-    "build:mac": "npm run compile && electron-builder --mac --x64",
-    "build:win": "npm run compile && electron-builder --win --x64",
-    "build:winstore": "npm run compile && electron-windows-store",
-    "build:linux": "npm run compile && electron-builder --linux --x64"
-  },
   "dependencies": {
-    "electron-fetch": "^1.1.0",
     "source-map-support": "^0.5.3"
   },
   "devDependencies": {
@@ -33,5 +22,15 @@
   },
   "resolutions": {
     "webpack-sources": "1.0.1"
+  },
+  "scripts": {
+    "start": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "build:clean": "rimraf dist",
+    "build:all": "npm run compile && electron-builder -mwl --x64",
+    "build:mac": "npm run compile && electron-builder --mac --x64",
+    "build:win": "npm run compile && electron-builder --win --x64",
+    "build:winstore": "npm run compile && electron-windows-store",
+    "build:linux": "npm run compile && electron-builder --linux --x64"
   }
 }
