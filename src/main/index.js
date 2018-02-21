@@ -32,6 +32,7 @@ const createMainWindow = () => {
   window.once('ready-to-show', () => {
     window.maximize();
     window.show();
+    showNotification();
   });
 
   window.on('closed', () => {
@@ -64,7 +65,6 @@ const showNotification = () => {
 // Application start
 app.on('ready', () => {
   mainWindow = createMainWindow();
-  showNotification();
 });
 
 // Application reactivation
