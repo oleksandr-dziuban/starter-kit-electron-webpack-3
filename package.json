@@ -34,9 +34,18 @@
     "build:winstore": "npm run compile && electron-windows-store",
     "build:linux": "npm run compile && electron-builder --linux --x64"
   },
-  "build" : {
-    "win" : {
-      "target": "msi"
+  "build": {
+    "win": {
+      "target": "msi",
+      "icon": "./build_resources/icon.ico"
+    },
+    "msi": {
+      "warningsAsErrors": false,
+      "runAfterFinish": true,
+      "shortcutName": "Electron Application Starter Kit"
+    },
+    "directories": {
+      "buildResources": "build_resources"
     }
   }
 }
