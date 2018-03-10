@@ -10,9 +10,9 @@ let mainWindow;
  * @returns {Electron.BrowserWindow}
  */
 const createMainWindow = () => {
-  const window = new BrowserWindow();
-
-  window.maximize();
+  const window = new BrowserWindow({
+    show: false,
+  });
 
   if (isDevelopment) {
     window.webContents.openDevTools();
@@ -28,6 +28,12 @@ const createMainWindow = () => {
       slashes: true
     }));
   }
+
+  window.once('ready-to-show', () => {
+    window.maximize();
+    window.show();
+    showNotification();
+  });
 
   window.on('closed', () => {
     mainWindow = null
@@ -59,7 +65,6 @@ const showNotification = () => {
 // Application start
 app.on('ready', () => {
   mainWindow = createMainWindow();
-  showNotification();
 });
 
 // Application reactivation
