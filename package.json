@@ -4,6 +4,7 @@
   "description": "Electron Application Starter Kit",
   "repository": "https://github.com/oleksandr-dziuban/starter-kit-electron-webpack-3",
   "license": "MIT",
+  "author": "Oleksandr Dziuban",
   "scripts": {
     "start": "electron-webpack dev",
     "compile": "electron-webpack",
@@ -13,6 +14,11 @@
     "build:win": "npm run compile && electron-builder --win --x64",
     "build:winstore": "npm run compile && electron-windows-store",
     "build:linux": "npm run compile && electron-builder --linux --x64"
+  },
+  "build" : {
+    "win" : {
+      "target": "msi"
+    }
   },
   "dependencies": {
     "electron-fetch": "^1.1.0",
